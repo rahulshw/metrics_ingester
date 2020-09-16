@@ -24,6 +24,7 @@ class MetricsStorage:
 		report = []
 		for ip_address, stats in self.data.items():
 
+			# creating a copy of the object to avoid racearound conditions
 			_stats = copy.deepcopy(stats)
 			_stats.update({'ip_address': ip_address})
 
